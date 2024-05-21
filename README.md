@@ -905,3 +905,96 @@ fatal: There is no merge in progress (MERGE_HEAD missing).
 victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
 $
 ```
+
+
+## Part 3: Advanced Workflow
+
+### Challenge 6 - Challenge 10
+
+```bash
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git tag v1.0
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git tag
+v1.0
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git push origin v1.0
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/VictorMugisha/git-advanced-exercises.git
+ * [new tag]         v1.0 -> v1.0
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git tag -d v1.0
+Deleted tag 'v1.0' (was 7672a51)
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git add .gitignore
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git commit -m "Added a .gitignore file"
+[main dbdd728] Added a .gitignore file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 295 bytes | 295.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/VictorMugisha/git-advanced-exercises.git
+   7672a51..dbdd728  main -> main
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git status
+On branch main
+nothing to commit, working tree clean
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git pull origin main
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 991 bytes | 45.00 KiB/s, done.
+From https://github.com/VictorMugisha/git-advanced-exercises
+ * branch            main       -> FETCH_HEAD
+   dbdd728..5279b79  main       -> origin/main
+Updating dbdd728..5279b79
+Fast-forward
+ test1.md | 2 ++
+ 1 file changed, 2 insertions(+)
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git log --oneline
+5279b79 (HEAD -> main, origin/main) Update test1.md from remote branch on GitHub
+dbdd728 Added a .gitignore file
+7672a51 Added bash history for Part 3 Challenge 1 - 5
+bce6761 Resolved conflict
+02f9de1 Made same chanes from main
+a80ad3d (ft/branch) Made changes in ft/branch branch
+3d4be8c Playing around with stashing
+904fd16 Updated README.md to add bash history of part 2 challenge 6 - 10
+c947be1 (origin/ft/improved-branch-name, ft/improved-branch-name) Merge pull request #1 from VictorMugisha/ft/new-branch-from-commit
+0b618bc Merge branch 'main' into ft/new-branch-from-commit
+a9d0638 Reolved conflict from merging
+94deea9 (origin/ft/new-branch-from-commit) Added some files in 'ft/new-branch-from-commit' branch
+4400e9f Updated README.md to add bash history for Part 2: Challenge 1 - 5
+0857a1e Merge branch 'ft/new-feature' into 'main'
+bd3ba1a Updated project readme
+d67b3ee Implemented core functionality for new feature
+982ce95 chore: Added README.md file
+69b5e8f Implementes test5.md
+877033a chore: Created fourth file
+d79a89a chore: Created second file
+d514fc7 chore: Created third file
+fe53acf chore: Create initial file
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$
+```
