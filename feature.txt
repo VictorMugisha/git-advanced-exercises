@@ -1,5 +1,5 @@
-Some changes to new-feature
-some text in new feature from a commit
 
+some text in new feature from a commit
+some text in new feature from a commit
 
 Decided to resolve conflict by getting all text from both branches
