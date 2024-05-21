@@ -767,3 +767,141 @@ remote:
 To https://github.com/VictorMugisha/git-advanced-exercises.git
  * [new branch]      ft/improved-branch-name -> ft/improved-branch-name
 ```
+
+## Part 3: Advanced Workflow
+
+### Challenge 1 - Challenge 5
+
+
+```bash
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git add test1.md
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git stash
+Saved working directory and index state WIP on main: 904fd16 Updated README.md to add bash history of part 2 challenge 6 - 
+10
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git stash
+Saved working directory and index state WIP on main: 904fd16 Updated README.md to add bash history of part 2 challenge 6 - 
+10
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git stash list
+stash@{0}: WIP on main: 904fd16 Updated README.md to add bash history of part 2 challenge 6 - 10
+stash@{1}: WIP on main: 904fd16 Updated README.md to add bash history of part 2 challenge 6 - 10
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git stash pop
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   test1.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (981559726f8414024c8dd848979c102b3b83f7af)
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git stash list
+stash@{0}: WIP on main: 904fd16 Updated README.md to add bash history of part 2 challenge 6 - 10
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git stash
+Saved working directory and index state WIP on main: 904fd16 Updated README.md to add bash history of part 2 challenge 6 - 
+10
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git stash list
+stash@{0}: WIP on main: 904fd16 Updated README.md to add bash history of part 2 challenge 6 - 10
+stash@{1}: WIP on main: 904fd16 Updated README.md to add bash history of part 2 challenge 6 - 10
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git stash apply
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   test1.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git stash list
+stash@{0}: WIP on main: 904fd16 Updated README.md to add bash history of part 2 challenge 6 - 10
+stash@{1}: WIP on main: 904fd16 Updated README.md to add bash history of part 2 challenge 6 - 10
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git stash pop
+error: Your local changes to the following files would be overwritten by merge:
+        test1.md
+Please commit your changes or stash them before you merge.
+Aborting
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   test1.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+The stash entry is kept in case you need it again.
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git add test1.md
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git commit -m "Playing around with stashing"
+[main 3d4be8c] Playing around with stashing
+ 1 file changed, 5 insertions(+)
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git checkout ft/branch
+Switched to branch 'ft/branch'
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/branch)
+$
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/branch)
+$
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/branch)
+$ git add .
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/branch)
+$ git commit -m "Made changes in ft/branch branch"
+[ft/branch a80ad3d] Made changes in ft/branch branch
+ 1 file changed, 3 insertions(+)
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/branch)
+$ git checkout main
+Switched to branch 'main'
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git add .
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git commit -m "Made same chanes from main"
+[main 02f9de1] Made same chanes from main
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git merge ft/branch
+Auto-merging test1.md
+CONFLICT (content): Merge conflict in test1.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main|MERGING)
+$ git add .
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main|MERGING)
+$ git commit -m "Resolved conflict"
+[main bce6761] Resolved conflict
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git merge --continue
+fatal: There is no merge in progress (MERGE_HEAD missing).
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$
+```
