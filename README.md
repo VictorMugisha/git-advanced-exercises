@@ -484,3 +484,74 @@ To https://github.com/VictorMugisha/git-advanced-exercises.git
 victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
 $
 ```
+
+
+
+## Part 2: Branching Basics (10 Challenges)
+
+### Challenge 1 - Challenge 5
+
+```bash
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git checkout -b ft/new-feature
+Switched to a new branch 'ft/new-feature'
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/new-feature)
+$ touch feature.txt
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/new-feature)
+$ git add .
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/new-feature)
+$ git commit -m "Implemented core functionality for new feature"
+[ft/new-feature d67b3ee] Implemented core functionality for new feature
+ 1 file changed, 2 insertions(+)
+ create mode 100644 feature.txt
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/new-feature)
+$ git checkout main
+Merge branch 'ft/new-feature' into 'main'
+Switched to branch 'main'
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ touch readme.txt
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git add readme.txt
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git commit -m "Updated project readme"
+[main bd3ba1a] Updated project readme
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.txt
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git branch
+  ft/branch
+  ft/new-feature
+* main
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git merge ft/new-feature
+Merge made by the 'ort' strategy.
+ feature.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 feature.txt
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git branch -d ft/new-feature
+Deleted branch ft/new-feature (was d67b3ee).
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git push origin main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (8/8), 765 bytes | 382.00 KiB/s, done.
+Total 8 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 1 local object.
+To https://github.com/VictorMugisha/git-advanced-exercises.git
+   982ce95..0857a1e  main -> main
+
+```
