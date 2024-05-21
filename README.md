@@ -555,3 +555,215 @@ To https://github.com/VictorMugisha/git-advanced-exercises.git
    982ce95..0857a1e  main -> main
 
 ```
+
+
+## Part 2: Branching Basics (10 Challenges)
+
+### Challenge 6 - Challenge 10
+```bash
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git log --oneline
+4400e9f (HEAD -> main, origin/main) Updated README.md to add bash history for Part 2: Challenge 1 - 5
+0857a1e Merge branch 'ft/new-feature' into 'main'
+bd3ba1a Updated project readme
+d67b3ee Implemented core functionality for new feature
+982ce95 chore: Added README.md file
+69b5e8f Implementes test5.md
+877033a chore: Created fourth file
+d79a89a chore: Created second file
+d514fc7 chore: Created third file
+fe53acf chore: Create initial file
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git checkout -b ft/new-branch-from-commit bd3ba1a
+Switched to a new branch 'ft/new-branch-from-commit'
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/new-branch-from-commit)
+$ git log --oneline
+bd3ba1a (HEAD -> ft/new-branch-from-commit) Updated project readme
+982ce95 chore: Added README.md file
+69b5e8f Implementes test5.md
+877033a chore: Created fourth file
+d79a89a chore: Created second file
+d514fc7 chore: Created third file
+fe53acf chore: Create initial file
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/new-branch-from-commit)
+$ git add .
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/new-branch-from-commit)
+$ git commit -m "Added some files in 'ft/new-branch-from-commit' branch"
+[ft/new-branch-from-commit 94deea9] Added some files in 'ft/new-branch-from-commit' branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/new-branch-from-commit)
+$ git push origin ft/new-branch-from-commit
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 351 bytes | 175.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'ft/new-branch-from-commit' on GitHub by visiting:
+remote:      https://github.com/VictorMugisha/git-advanced-exercises/pull/new/ft/new-branch-from-commit
+remote:
+To https://github.com/VictorMugisha/git-advanced-exercises.git
+ * [new branch]      ft/new-branch-from-commit -> ft/new-branch-from-commit
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/new-branch-from-commit)
+$ git checkout main
+Switched to branch 'main'
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git merge ft/new-branch-from-commit
+Auto-merging feature.txt
+CONFLICT (add/add): Merge conflict in feature.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main|MERGING)
+$ git add feature.txt
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main|MERGING)
+$ git reset
+Unstaged changes after reset:
+M       feature.txt
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git add feature.txt
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git commit -m "Reolved conflict from merging""
+> ^C
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git commit -m "Reolved conflict from merging"
+[main a9d0638] Reolved conflict from merging
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 384 bytes | 384.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/VictorMugisha/git-advanced-exercises.git
+   4400e9f..a9d0638  main -> main
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git merge --continue
+fatal: There is no merge in progress (MERGE_HEAD missing).
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git pull origin main
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), 1.87 KiB | 83.00 KiB/s, done.
+From https://github.com/VictorMugisha/git-advanced-exercises
+ * branch            main       -> FETCH_HEAD
+   a9d0638..c947be1  main       -> origin/main
+Updating a9d0638..c947be1
+Fast-forward
+ feature.txt | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (main)
+$ git checkout ft/new-branch-from-commit
+Switched to branch 'ft/new-branch-from-commit'
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/new-branch-from-commit)
+$ git rebase main
+Successfully rebased and updated refs/heads/ft/new-branch-from-commit.
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/new-branch-from-commit)
+$ git branch -m ft/new-branch-from-commit ft/improved-branch-name
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/improved-branch-name)
+$ git log --oneline
+c947be1 (HEAD -> ft/improved-branch-name, origin/main, main) Merge pull request #1 from VictorMugisha/ft/new-branch-from-commit
+0b618bc Merge branch 'main' into ft/new-branch-from-commit
+a9d0638 Reolved conflict from merging
+94deea9 (origin/ft/new-branch-from-commit) Added some files in 'ft/new-branch-from-commit' branch
+4400e9f Updated README.md to add bash history for Part 2: Challenge 1 - 5
+0857a1e Merge branch 'ft/new-feature' into 'main'
+bd3ba1a Updated project readme
+d67b3ee Implemented core functionality for new feature
+982ce95 chore: Added README.md file
+69b5e8f Implementes test5.md
+877033a chore: Created fourth file
+d79a89a chore: Created second file
+d514fc7 chore: Created third file
+fe53acf chore: Create initial file
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/improved-branch-name)
+$ git checkout bd3ba1a
+Note: switching to 'bd3ba1a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at bd3ba1a Updated project readme
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises ((bd3ba1a...))
+$ git log --oneline
+bd3ba1a (HEAD) Updated project readme
+982ce95 chore: Added README.md file
+69b5e8f Implementes test5.md
+877033a chore: Created fourth file
+d79a89a chore: Created second file
+d514fc7 chore: Created third file
+fe53acf chore: Create initial file
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises ((bd3ba1a...))
+$ git reset --hard bd3ba1a
+HEAD is now at bd3ba1a Updated project readme
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises ((bd3ba1a...))
+$ git branch
+* (HEAD detached at bd3ba1a)
+  ft/branch
+  ft/improved-branch-name
+  main
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises ((bd3ba1a...))
+$ git checkout ft/branch
+Previous HEAD position was bd3ba1a Updated project readme
+Switched to branch 'ft/branch'
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/branch)
+$ git reset --hard ft/improved-branch-name
+HEAD is now at c947be1 Merge pull request #1 from VictorMugisha/ft/new-branch-from-commit
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/branch)
+$ git checkout ft/improved-branch-name
+Switched to branch 'ft/improved-branch-name'
+
+victo@DESKTOP-VEQ8F6B MINGW64 ~/OneDrive/Documents/git_learning/advancedExercises (ft/improved-branch-name)
+$ git push origin ft/improved-branch-name
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a pull request for 'ft/improved-branch-name' on GitHub by visiting:
+remote:      https://github.com/VictorMugisha/git-advanced-exercises/pull/new/ft/improved-branch-name
+remote:
+To https://github.com/VictorMugisha/git-advanced-exercises.git
+ * [new branch]      ft/improved-branch-name -> ft/improved-branch-name
+```
